@@ -61,8 +61,8 @@ export function HeroSection() {
               Ask your PDF
             </p>
             <p className="mt-2 text-sm text-slate-700">
-              "Which sections mention renewal risk and what mitigation is
-              proposed?"
+              &quot;Which sections mention renewal risk and what mitigation is
+              proposed?&quot;
             </p>
           </div>
         </div>
