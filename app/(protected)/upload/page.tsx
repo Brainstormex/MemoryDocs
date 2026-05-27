@@ -3,6 +3,8 @@
 import { useState, useRef } from "react";
 import { z } from "zod";
 import { useUploadThing } from "@/utils/uploadthing";
+import { generatePdfSummary } from "@/actions/upload-actions";
+
 
 // Zod Schema to validate files on the client side
 const uploadSchema = z.object({
@@ -31,13 +33,19 @@ export default function UploadPage() {
     onUploadProgress: (progress) => {
       setUploadProgress(progress);
     },
-    onClientUploadComplete: (res) => {
+    onClientUploadComplete: async (res) => {
       setUploadProgress(100);
       if (res && res[0]) {
         setUploadResult({
           url: res[0].url,
           name: res[0].name,
         });
+
+        // Trigger server action to extract and log PDF text
+        const result = await generatePdfSummary(res);
+        if (!result.success) {
+          console.error("PDF extraction failed:", result.message);
+        }
       }
       setFile(null);
       setValidationError(null);

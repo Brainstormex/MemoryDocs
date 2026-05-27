@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  serverExternalPackages: [
+    "@langchain/community",
+    "@langchain/core",
+    "langchain",
+    "pdf-parse",
+  ],
 };
 
 export default nextConfig;
