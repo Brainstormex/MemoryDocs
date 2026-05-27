@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 
-import { LandingHeader } from "./components/landing/LandingHeader";
 import { HeroSection } from "./components/landing/HeroSection";
 import { LandingFooter } from "./components/landing/LandingFooter";
 
@@ -42,8 +41,6 @@ const FinalCtaSection = dynamic(
 export default function Home() {
   return (
     <div className="landing-bg text-slate-900">
-      <LandingHeader />
-
       <main>
         <HeroSection />
         <FeaturesSection />
