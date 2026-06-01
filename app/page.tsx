@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 
 import { HeroSection } from "./components/landing/HeroSection";
 import { LandingFooter } from "./components/landing/LandingFooter";
+import { InteractiveGlow } from "./components/landing/InteractiveGlow";
 
 const FeaturesSection = dynamic(
   () => import("./components/landing/FeaturesSection").then((mod) => mod.FeaturesSection),
@@ -40,8 +41,11 @@ const FinalCtaSection = dynamic(
 
 export default function Home() {
   return (
-    <div className="landing-bg text-slate-900">
-      <main>
+    <div className="landing-bg text-slate-900 relative min-h-screen overflow-x-hidden">
+      {/* Premium background responsive particle glow */}
+      <InteractiveGlow />
+
+      <main className="relative z-10">
         <HeroSection />
         <FeaturesSection />
         <HowItWorksSection />
